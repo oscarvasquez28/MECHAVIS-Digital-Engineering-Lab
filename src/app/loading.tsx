@@ -1,0 +1,1 @@
+export default function Loading() { return <div className="route-loading"><span className="technical-spinner"/><span className="eyebrow">MECHAVIS / PREPARING WORKSPACE</span><p>Loading engineering data...</p></div>; }
