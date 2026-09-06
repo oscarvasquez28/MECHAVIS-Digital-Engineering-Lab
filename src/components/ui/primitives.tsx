@@ -1,0 +1,11 @@
+"use client";
+
+import * as Dialog from "@radix-ui/react-dialog";
+import { X, ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
+export function Eyebrow({ children, className = "" }: { children: ReactNode; className?: string }) { return <div className={`eyebrow ${className}`}>{children}</div>; }
+export function SectionHeading({ eyebrow, title, description, children }: { eyebrow: string; title: string; description?: string; children?: ReactNode }) { return <header className="section-heading"><div><Eyebrow><span className="tiny-square"/>{eyebrow}</Eyebrow><h1>{title}<span className="accent">.</span></h1>{description && <p>{description}</p>}</div>{children}</header>; }
+export function TechnicalValue({ label, value, unit }: { label: string; value: ReactNode; unit?: string }) { return <div className="technical-value"><span>{label}</span><strong>{value}{unit && <small> {unit}</small>}</strong></div>; }
+export function Disclaimer({ compact = false }: { compact?: boolean }) { return <p className="disclaimer"><span className="tiny-square"/>{compact ? "Illustrative engineering value" : "Conceptual engineering data. Illustrative values, not manufacturer specifications."}</p>; }
+export function EmptyState({ title, description, onReset }: { title: string; description: string; onReset?: () => void }) { return <div className="empty-state"><div className="empty-crosshair">+</div><h3>{title}</h3><p>{description}</p>{onReset && <button className="button secondary" onClick={onReset}>Reset filters <ArrowUpRight size={14}/></button>}</div>; }
+export function Modal({ open, onOpenChange, title, description, children, className = "" }: { open: boolean; onOpenChange: (open: boolean) => void; title: string; description?: string; children: ReactNode; className?: string }) { return <Dialog.Root open={open} onOpenChange={onOpenChange}><Dialog.Portal><Dialog.Overlay className="dialog-overlay"/><Dialog.Content className={`dialog-content ${className}`}><div className="dialog-heading"><div><Dialog.Title>{title}</Dialog.Title><Dialog.Description>{description || "MECHAVIS engineering workspace"}</Dialog.Description></div><Dialog.Close className="icon-button" aria-label="Close panel"><X size={18}/></Dialog.Close></div>{children}</Dialog.Content></Dialog.Portal></Dialog.Root>; }
