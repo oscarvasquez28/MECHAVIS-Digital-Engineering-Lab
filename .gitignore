@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Generated files
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment & secrets (nunca subir claves)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Testing artifacts
+test-results/
+playwright-report/
+coverage/
+.nyc_output/
+
+# Cache & tooling
+.cache/
+.turbo/
+.vercel/
+.eslintcache
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
